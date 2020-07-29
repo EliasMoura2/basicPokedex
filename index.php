@@ -18,6 +18,6 @@
       </div>
       <input type="text" name="" id="search" placeholder="Nombre o Id" />
     </main>
-    <script src="fetch.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
