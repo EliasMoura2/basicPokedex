@@ -8,7 +8,6 @@ async function getPokemon(id) {
 
 async function init() {
   const pokemon = await getPokemon(22);
-  console.log("pokemon:", pokemon);
   //creamos un div con id="stat-pokemon"
   const statDiv = document.createElement("div");
   statDiv.classList.add("stat-pokemon");
@@ -54,26 +53,23 @@ async function init() {
 
 init();
 
-/* const btnAnterior = document.querySelector("anterior");
-btnAnterior.addEventListener("click");
-const btnSiguiente = document.querySelector("Siguiente");
-btnSiguiente.addEventListener("click"); */
 function updatePokemon(pokemon) {
+  //asigna al h1 con id="pokemon" el valor de pokemon.name
   window.pokemon.textContent = pokemon.name;
-  console.log(pokemon.srites);
+  //asigna a la imagen con id="image" el src de pokemon.sprites.front_default
   window.image.setAttribute("src", pokemon.sprites.front_default);
-  //console.log(pokemon.stats);
 
-  //recorremos los stats
   var cont = 0;
+  //recorremos los stats
   for (const stat of pokemon.stats) {
-    // let cont = pokemon.stats;
-    // .stat_name.textContent = stat.stat.name;
+    //console.log(pokemon.stats);
     // console.log(stat.base_stat, stat.stat.name);
 
+    /*
+    recorremos la cantidad de stats y estaticamente vamos asignando a los p creados
+    */
     if (cont == 0) {
       window.stat_0.textContent = stat.stat.name + ": " + stat.base_stat;
-
       //   window.base_stat_0.textContent = stat.base_stat;
       //   window.img_stat_0.setAttribute("src", stat.stat.url);
     }
@@ -92,7 +88,6 @@ function updatePokemon(pokemon) {
     if (cont == 5) {
       window.stat_5.textContent = stat.stat.name + ": " + stat.base_stat;
     }
-
     cont = cont + 1;
   }
 }
